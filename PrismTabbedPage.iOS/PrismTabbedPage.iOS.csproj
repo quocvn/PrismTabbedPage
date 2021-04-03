@@ -68,6 +68,7 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderers\CustomTabbedPageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -125,6 +126,9 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Prism.Unity.Forms">
+      <Version>8.0.0.1909</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -132,5 +136,28 @@
       <Project>{3DA51989-9F66-4C2F-849F-01C40D283D0A}</Project>
       <Name>PrismTabbedPage</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Renderers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\app_logo_unselected.png" />
+    <BundleResource Include="Resources\app_logo_unselected%402x.png" />
+    <BundleResource Include="Resources\app_logo_unselected%403x.png" />
+    <BundleResource Include="Resources\ic_favorite.png" />
+    <BundleResource Include="Resources\ic_favorite%402x.png" />
+    <BundleResource Include="Resources\ic_favorite%403x.png" />
+    <BundleResource Include="Resources\ic_home.png" />
+    <BundleResource Include="Resources\ic_home%402x.png" />
+    <BundleResource Include="Resources\ic_home%403x.png" />
+    <BundleResource Include="Resources\ic_people.png" />
+    <BundleResource Include="Resources\ic_people%402x.png" />
+    <BundleResource Include="Resources\ic_people%403x.png" />
+    <BundleResource Include="Resources\ic_settings.png" />
+    <BundleResource Include="Resources\ic_settings%402x.png" />
+    <BundleResource Include="Resources\ic_settings%403x.png" />
+    <BundleResource Include="Resources\app_logo.png" />
+    <BundleResource Include="Resources\app_logo%402x.png" />
+    <BundleResource Include="Resources\app_logo%403x.png" />
   </ItemGroup>
 </Project>

@@ -1,16 +1,36 @@
-﻿using System;
+﻿using Prism;
+using Prism.Ioc;
+using Prism.Unity;
+using PrismTabbedPage.Views;
+using Unity;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace PrismTabbedPage
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        public App()
+        public App() : this(null) { }
+
+        public App(IPlatformInitializer initializer = null) : base(initializer) { }
+
+        protected override async void OnInitialized()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            await NavigationService.NavigateAsync("NavigationPage/MyTabbedPage");
+        }
+
+        protected override void RegisterRequiredTypes(IContainerRegistry containerRegistry)
+        {
+            base.RegisterRequiredTypes(containerRegistry);
+
+            //containerRegistry.RegisterSingleton<NLogLogger>();
+        }
+
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MyTabbedPage>();
         }
 
         protected override void OnStart()
@@ -23,6 +43,21 @@ namespace PrismTabbedPage
 
         protected override void OnResume()
         {
+        }
+
+        public static Page GetMainPage()
+        {
+            return new ContentPage
+            {
+                Content = new Label
+                {
+                    Text = "Hello, Forms !",
+                    VerticalOptions =
+                      LayoutOptions.CenterAndExpand,
+                    HorizontalOptions =
+                      LayoutOptions.CenterAndExpand,
+                },
+            };
         }
     }
 }
