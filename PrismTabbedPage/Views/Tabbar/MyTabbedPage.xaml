@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <controls:CustomTabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="PrismTabbedPage.Views.MyTabbedPage"
+             x:Class="PrismTabbedPage.Views.Tabbar.MyTabbedPage"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              android:TabbedPage.ToolbarPlacement="Bottom"
              android:TabbedPage.IsSwipePagingEnabled="True"
@@ -12,17 +12,20 @@
              BarTextColor="Gray"
              SelectedTabColor="YellowGreen"
              xmlns:controls="clr-namespace:PrismTabbedPage.Controls"
-             xmlns:local="clr-namespace:PrismTabbedPage.Views;assembly=PrismTabbedPage"
+             xmlns:local="clr-namespace:PrismTabbedPage.Views.Tabbar;assembly=PrismTabbedPage"
              Title="{Binding Title}"
              SelectedTabIndex="{Binding SelectedTab}">
 
     <controls:CustomTabbedPage.Children>
-        <local:TabChild1Page Title="Tab1" IconImageSource="ic_home.png" />
+        <local:TabHome Title="Home" IconImageSource="ic_home.png" />
         <!--<local:TabChild2Page Title="Tab2" IconImageSource="ic_favorite.png"/>
         <local:TabChild3Page Title="Tab3" IconImageSource="ic_people.png"/>-->
 
         <ContentPage Title="App" IconImageSource="app_logo_unselected.png" x:Name="home" BackgroundColor="Blue"/>
         <ContentPage Title="Settings" IconImageSource="ic_settings.png" BackgroundColor="Yellow"/>
+
+        <local:TabAccount Title="Account" IconImageSource="ic_people.png"/>
+
     </controls:CustomTabbedPage.Children>
 </controls:CustomTabbedPage>
 

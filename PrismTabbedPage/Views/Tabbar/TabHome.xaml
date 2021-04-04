@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage
-    x:Class="PrismTabbedPage.Views.TabChild1Page"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PrismTabbedPage.Views.Tabbar.TabHome"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     Title="{Binding Title}"
     prism:ViewModelLocator.AutowireViewModel="True"
-
     BackgroundColor="White">
+
     <!--<ContentPage.Icon>
         <OnPlatform x:TypeArguments="FileImageSource">
             <On Platform="iOS" Value="tab1icon.png" />
@@ -47,5 +47,4 @@
             Text="Go to Child Tab 3"
             TextColor="White" />
     </StackLayout>
-
 </ContentPage>

@@ -20,7 +20,10 @@ namespace PrismTabbedPage.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Xamarin.Forms.Forms.SetFlags("SwipeView_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            global::Xamarin.Forms.FormsMaterial.Init();
+
             //LoadApplication(new App());
             LoadApplication(new App(new iOSInitializer()));
 

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="PrismTabbedPage.Views.Account.UserListPage"
+    x:Name="UserListPages"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:PrismTabbedPage.Models"
+    xmlns:viewmodels="clr-namespace:PrismTabbedPage.ViewModels"
+    Title="User List"
+    mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding AddUserClicked}"
+            IconImageSource="plus.png"
+            Order="Primary"
+            Priority="0" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <SearchBar
+                x:Name="searchBar"
+                HorizontalOptions="Fill"
+                VerticalOptions="CenterAndExpand"
+                Placeholder="Search some users"
+                PlaceholderColor="DimGray"
+                TextChanged="OnSearchChanged"
+                SearchCommand="{Binding SearchCommand}"
+                SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}" />
+
+            <!--<Label Margin="10" 
+                   Text="{Binding UserCount, StringFormat='{0} Users'}"
+                   d:Text=""
+                   d:BackgroundColor="Orange" />-->
+            <ListView
+                Grid.Row="1"
+                GroupDisplayBinding="{Binding Key}"
+                GroupShortNameBinding="{Binding Key}"
+                HasUnevenRows="true"
+                IsPullToRefreshEnabled="true"
+                Refreshing="OnRefresh"
+                IsGroupingEnabled="true"
+                d:IsGroupingEnabled="false"
+                ItemSelected="Handle_ItemSelected"
+                ItemTapped="Handle_ItemTapped"
+                ItemsSource="{Binding UserListGrouped}">
+                <d:ListView.ItemsSource>
+                    <x:Array Type="{x:Type models:User}">
+                        <models:User FirstName="Quoc" LastName="Nguyen" Email="quoc@deltabrains.tech"/>
+                        <models:User FirstName="Quoc" LastName="Quoc" Email="quoc.quoc@gmail.com"/>
+                    </x:Array>
+                </d:ListView.ItemsSource>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems Mode="Reveal">
+                                        <SwipeItemView Command="{Binding Path=BindingContext.DeleteClicked, Source={x:Reference Name=UserListPages}}" CommandParameter="{Binding .}">
+                                            <StackLayout BackgroundColor="LightPink" WidthRequest="90">
+                                                <Label Text="&#xe872;" FontSize="33" TextColor="DimGray"
+                                                    FontFamily="Material" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" Padding="0,10,0,0" />
+                                                <Label Text="Delete" FontSize="18" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,10" />
+                                            </StackLayout>
+                                        </SwipeItemView>
+
+                                        <SwipeItemView Command="{Binding Path=BindingContext.EditClicked, Source={x:Reference Name=UserListPages}}" CommandParameter="{Binding .}">
+                                            <StackLayout BackgroundColor="LightGreen" WidthRequest="90">
+                                                <Label Text="&#xe3c9;" FontSize="33" TextColor="DimGray"
+                                                    FontFamily="Material" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" Padding="0,10,0,0" />
+                                                <Label Text="Edit" FontSize="18" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,10" />
+                                            </StackLayout>
+                                        </SwipeItemView>
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <!-- Content -->
+                                <Grid
+                                    Padding="10"
+                                    ColumnSpacing="10"
+                                    RowSpacing="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <controls:CircleImage
+                                        Aspect="AspectFill"
+                                        HeightRequest="65"
+                                        WidthRequest="65"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"
+                                        Source="{Binding Avatar, TargetNullValue='user_default.png'}" />
+                                    <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                        <Label Text="{Binding FullName}" />
+                                        <Label Text="{Binding Email}" />
+                                    </StackLayout>
+                                </Grid>
+                            </SwipeView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
