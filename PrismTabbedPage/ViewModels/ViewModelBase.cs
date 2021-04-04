@@ -21,13 +21,13 @@ namespace PrismTabbedPage.ViewModels
             NavigationService = navigationService;
         }
 
-        public void OnNavigatedFrom(INavigationParameters parameters)
+        public virtual void OnNavigatedFrom(INavigationParameters parameters)
         {
             //throw new NotImplementedException();
             Console.WriteLine("OnNavigatedFrom");
         }
 
-        public void OnNavigatedTo(INavigationParameters parameters)
+        public virtual void OnNavigatedTo(INavigationParameters parameters)
         {
             //throw new NotImplementedException();
             Console.WriteLine("OnNavigatedTo");

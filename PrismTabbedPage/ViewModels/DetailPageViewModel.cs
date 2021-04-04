@@ -24,7 +24,7 @@ namespace PrismTabbedPage.ViewModels
             this._navigationService = navigationService;
             this._unityContainer = unityContainer;
 
-            this._myTabbedPageSelectedTab = unityContainer.Resolve<IMyTabbedPageSelectedTab>();
+            //this._myTabbedPageSelectedTab = unityContainer.Resolve<IMyTabbedPageSelectedTab>();
 
             Title = "Detail Page";
 
@@ -37,20 +37,31 @@ namespace PrismTabbedPage.ViewModels
 
         private void GoBackToTabChild1Page()
         {
-            _myTabbedPageSelectedTab.SetSelectedTab(0);
-            _navigationService.GoBackAsync();
+            //_myTabbedPageSelectedTab.SetSelectedTab(0);
+            var navigationParameters = new NavigationParameters
+            {
+                { "TAB_INDEX", 0 }
+            };
+
+            _navigationService.GoBackAsync(navigationParameters);
         }
 
         private void GoBackToTabChild2Page()
         {
-            _myTabbedPageSelectedTab.SetSelectedTab(1);
-            _navigationService.GoBackAsync();
+            var navigationParameters = new NavigationParameters
+            {
+                { "TAB_INDEX", 1 }
+            };
+            _navigationService.GoBackAsync(navigationParameters);
         }
 
         private void GoBackToTabChild3Page()
         {
-            _myTabbedPageSelectedTab.SetSelectedTab(2);
-            _navigationService.GoBackAsync();
+            var navigationParameters = new NavigationParameters
+            {
+                { "TAB_INDEX", 2 }
+            };
+            _navigationService.GoBackAsync(navigationParameters);
         }
     }
 }

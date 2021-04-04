@@ -18,13 +18,11 @@
 
     <controls:CustomTabbedPage.Children>
         <local:TabHome Title="Home" IconImageSource="ic_home.png" />
-        <!--<local:TabChild2Page Title="Tab2" IconImageSource="ic_favorite.png"/>
-        <local:TabChild3Page Title="Tab3" IconImageSource="ic_people.png"/>-->
-
-        <ContentPage Title="App" IconImageSource="app_logo_unselected.png" x:Name="home" BackgroundColor="Blue"/>
-        <ContentPage Title="Settings" IconImageSource="ic_settings.png" BackgroundColor="Yellow"/>
+        <ContentPage Title="Settings" IconImageSource="ic_settings.png" BackgroundColor="AliceBlue"/>
+        <ContentPage Title="Favorite" IconImageSource="ic_favorite.png" BackgroundColor="Azure"/>
 
         <local:TabAccount Title="Account" IconImageSource="ic_people.png"/>
+        <local:TabDemo Title="Demo" IconImageSource="app_logo_unselected.png" x:Name="home" BackgroundColor="Honeydew"/>
 
     </controls:CustomTabbedPage.Children>
 </controls:CustomTabbedPage>

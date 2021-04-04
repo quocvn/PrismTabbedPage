@@ -2,6 +2,7 @@
 using Prism.Commands;
 using Prism.Navigation;
 using PrismTabbedPage.Interfaces;
+using PrismTabbedPage.Views;
 using Unity;
 
 namespace PrismTabbedPage.ViewModels.Tabbar
@@ -30,13 +31,19 @@ namespace PrismTabbedPage.ViewModels.Tabbar
 
         private async void GoToDetailPage()
         {
-            await NavigationService.NavigateAsync("NavigationPage/DetailPage");
-            //await NavigationService.NavigateAsync(nameof(DetailPage));
+            await _navigationService.NavigateAsync(nameof(DetailPage));
         }
 
         private void GoToNextTab(int tabIndex)
         {
             _unityContainer.Resolve<IMyTabbedPageSelectedTab>().SetSelectedTab(tabIndex);
+        }
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            if (parameters == null) return;
+            var index = parameters.GetValue<int>("TAB_INDEX");
+            _unityContainer.Resolve<IMyTabbedPageSelectedTab>().SetSelectedTab(index);
         }
     }
 }

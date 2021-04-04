@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismTabbedPage.Views.Tabbar.TabDemo">
+
+    <ListView x:Name="list"
+              HasUnevenRows="True"
+              ItemsSource="{Binding DemoList}"
+              ItemSelected="Handle_ItemSelected"
+              ItemTapped="Handle_ItemTapped"
+              RowHeight="55">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+      	<ViewCell>
+      		<Grid Padding="5">
+	      		<Grid.RowDefinitions>
+				    <RowDefinition Height="20"></RowDefinition>
+				    <RowDefinition Height="20"></RowDefinition>
+		    	</Grid.RowDefinitions>
+		    	<Grid.ColumnDefinitions>
+				    <ColumnDefinition Width="*"></ColumnDefinition>
+				    <ColumnDefinition Width="40"></ColumnDefinition>
+			    </Grid.ColumnDefinitions>
+
+			    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" LineBreakMode="TailTruncation"></Label>
+			    <Label Grid.Row="1" Grid.Column="0" Text="{Binding Position}" Font="Small"  TextColor="Gray" LineBreakMode="TailTruncation"></Label>
+      		</Grid>
+      	</ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+</ContentPage>
