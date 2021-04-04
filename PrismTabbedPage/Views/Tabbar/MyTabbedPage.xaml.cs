@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using PrismTabbedPage.Controls;
+﻿using PrismTabbedPage.Controls;
 using Xamarin.Forms;
 
-namespace PrismTabbedPage.Views
+namespace PrismTabbedPage.Views.Tabbar
 {
     public partial class MyTabbedPage : CustomTabbedPage
     {

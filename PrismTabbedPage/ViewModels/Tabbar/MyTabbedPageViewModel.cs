@@ -4,7 +4,7 @@ using PrismTabbedPage.Interfaces;
 using Unity;
 using Unity.Lifetime;
 
-namespace PrismTabbedPage.ViewModels
+namespace PrismTabbedPage.ViewModels.Tabbar
 {
     public class MyTabbedPageViewModel : ViewModelBase, IMyTabbedPageSelectedTab
     {

@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace PrismTabbedPage.Views
 {
-    public partial class TabChild1Page : ContentPage
+    public partial class DetailPage : ContentPage
     {
-        public TabChild1Page()
+        public DetailPage()
         {
             InitializeComponent();
         }

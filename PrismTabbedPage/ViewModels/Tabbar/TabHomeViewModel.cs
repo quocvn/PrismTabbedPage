@@ -4,9 +4,9 @@ using Prism.Navigation;
 using PrismTabbedPage.Interfaces;
 using Unity;
 
-namespace PrismTabbedPage.ViewModels
+namespace PrismTabbedPage.ViewModels.Tabbar
 {
-    public class TabChild1PageViewModel : ViewModelBase
+    public class TabHomeViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
         private readonly IUnityContainer _unityContainer;
@@ -15,7 +15,7 @@ namespace PrismTabbedPage.ViewModels
 
         public DelegateCommand<string> GoToNextTabCommand { get; set; }
 
-        public TabChild1PageViewModel(INavigationService navigationService, IUnityContainer unityContainer)
+        public TabHomeViewModel(INavigationService navigationService, IUnityContainer unityContainer)
             : base(navigationService)
         {
             this._navigationService = navigationService;
@@ -30,7 +30,8 @@ namespace PrismTabbedPage.ViewModels
 
         private async void GoToDetailPage()
         {
-            //await _navigationService.NavigateAsync(nameof(DetailPage));
+            await NavigationService.NavigateAsync("NavigationPage/DetailPage");
+            //await NavigationService.NavigateAsync(nameof(DetailPage));
         }
 
         private void GoToNextTab(int tabIndex)
