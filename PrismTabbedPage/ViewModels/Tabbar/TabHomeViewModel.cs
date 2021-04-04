@@ -4,7 +4,7 @@ using Prism.Navigation;
 using PrismTabbedPage.Interfaces;
 using Unity;
 
-namespace PrismTabbedPage.ViewModels
+namespace PrismTabbedPage.ViewModels.Tabbar
 {
     public class TabHomeViewModel : ViewModelBase
     {

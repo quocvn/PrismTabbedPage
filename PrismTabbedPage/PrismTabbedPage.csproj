@@ -32,6 +32,7 @@
     <Folder Include="Resources\" />
     <Folder Include="Services\" />
     <Folder Include="Views\Tabbar\" />
+    <Folder Include="ViewModels\Tabbar\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\MaterialIconsOutlined-Regular.otf" />

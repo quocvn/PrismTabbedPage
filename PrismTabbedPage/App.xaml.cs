@@ -44,8 +44,6 @@ namespace PrismTabbedPage
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MyTabbedPage>();
-            containerRegistry.RegisterForNavigation<TabHome>();
-            containerRegistry.RegisterForNavigation<TabAccount>();
             containerRegistry.RegisterForNavigation<UserListPage>();
             containerRegistry.RegisterForNavigation<DetailPage>();
         }

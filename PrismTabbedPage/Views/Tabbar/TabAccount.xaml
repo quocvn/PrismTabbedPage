@@ -20,8 +20,8 @@
             Text="Here to explore Advanced Tab Navigation with MVVM friendly and Testable disciplines!" />
         <Button
             BackgroundColor="#2196F3"
-            Command="{Binding GoToTabPageCommand}"
-            Text="Go to Tabbed Page"
+            Command="{Binding GoToUserListPageCommand}"
+            Text="Go to User List Page"
             TextColor="White" />
     </StackLayout>
 
