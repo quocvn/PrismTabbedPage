@@ -16,6 +16,8 @@ namespace PrismTabbedPage.ViewModels.Tabbar
 
         public DelegateCommand<string> GoToNextTabCommand { get; set; }
 
+        //public DelegateCommand<bool> ToggerSchedule { get; set; }
+
         public TabHomeViewModel(INavigationService navigationService, IUnityContainer unityContainer)
             : base(navigationService)
         {
@@ -27,6 +29,8 @@ namespace PrismTabbedPage.ViewModels.Tabbar
             GoToDetailPageCommand = new DelegateCommand(GoToDetailPage);
 
             GoToNextTabCommand = new DelegateCommand<string>((param) => GoToNextTab(int.Parse(param)));
+
+            //ToggerSchedule = new DelegateCommand<bool>((value) => ExecuteSwitchCommand(value));
         }
 
         private async void GoToDetailPage()
@@ -45,5 +49,12 @@ namespace PrismTabbedPage.ViewModels.Tabbar
             var index = parameters.GetValue<int>("TAB_INDEX");
             _unityContainer.Resolve<IMyTabbedPageSelectedTab>().SetSelectedTab(index);
         }
+
+
+        //private void ExecuteSwitchCommand(bool value)
+        //{
+        //    Console.WriteLine("value: {0}", value.ToString());
+        //}
+
     }
 }

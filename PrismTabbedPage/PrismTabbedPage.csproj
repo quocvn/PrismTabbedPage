@@ -22,6 +22,7 @@
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.483" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -37,6 +38,7 @@
     <Folder Include="Services\" />
     <Folder Include="Views\Tabbar\" />
     <Folder Include="ViewModels\Tabbar\" />
+    <Folder Include="Behaviors\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\MaterialIconsOutlined-Regular.otf" />

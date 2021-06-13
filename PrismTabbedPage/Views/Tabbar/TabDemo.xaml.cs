@@ -22,7 +22,8 @@ namespace PrismTabbedPage.Views.Tabbar
 
             switch (item.Id) {
                 case 1:
-                    await Navigation.PushAsync(new UserListPage());
+                    //await Navigation.PushAsync(new UserListPage());
+                    await Navigation.PushAsync(new CollapsePage());
                     break;
                 default:
                     break;

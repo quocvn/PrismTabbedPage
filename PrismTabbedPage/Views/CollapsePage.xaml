@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+    xmlns:viewmodels="clr-namespace:PrismTabbedPage.ViewModels"
+    x:Class="PrismTabbedPage.Views.CollapsePage"
+    Title="Setting">
+
+    <ContentPage.BindingContext>
+        <viewmodels:CollapsePageViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView Padding="10">
+        <StackLayout BindableLayout.ItemsSource="{Binding ImageSettings}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <xct:Expander ExpandAnimationEasing="CubicIn"
+                                  ExpandAnimationLength="300"
+                                  CollapseAnimationEasing="CubicOut"
+                                  CollapseAnimationLength="300">
+                        <xct:Expander.Header>
+                            <Grid BackgroundColor="Gray" Padding="10">
+                                <Label FontSize="Large" Text="{Binding SettingName}" FontAttributes="Bold" VerticalOptions="Center" TextColor="White" />
+                                <Image HeightRequest="30" Source="collapsed.png" HorizontalOptions="End">
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image"
+                                                     Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+                                                     Value="true">
+                                            <Setter Property="Source"
+                                                    Value="expanded.png"/>
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+                            </Grid>
+                        </xct:Expander.Header>
+
+                        <xct:Expander.ContentTemplate>
+                            <DataTemplate>
+                                <FlexLayout BindableLayout.ItemsSource="{Binding Images}" 
+                                            Wrap="Wrap"
+                                            Direction="Row"
+                                            JustifyContent="Start"
+                                            AlignItems="Start"
+                                            AlignContent="Start"
+                                            Padding="2">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Padding="5"
+                                                  FlexLayout.Basis="{OnIdiom Phone='50%', Tablet='33%'}"
+                                                  FlexLayout.AlignSelf="Start">
+                                                <Frame BorderColor="White" CornerRadius="5" HasShadow="True" Padding="3"
+                                                       VerticalOptions="Start">
+                                                    <Grid Padding="0">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                        </Grid.RowDefinitions>
+                                                        <Image Grid.Row="0" Source="{Binding Url}" Aspect="AspectFill"
+                                                               WidthRequest="150"
+                                                               HeightRequest="150"/>
+                                                        <Label Grid.Row="1" Margin="10,0" Text="{Binding Name}" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand"/>
+                                                    </Grid>
+                                                </Frame>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </FlexLayout>
+                            </DataTemplate>
+                        </xct:Expander.ContentTemplate>
+                    </xct:Expander>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
